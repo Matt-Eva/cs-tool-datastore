@@ -29,15 +29,32 @@
         </div>
 
         <script>
+            window.onload = () => {
+                console.log("loaded")
+            }
 
             const script = document.createElement('script');
             script.src = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.0.0/dist/supabase.min.js";
-            script.onload = () => {
+            document.body.appendChild(script)
+            script.addEventListener("load", () => {
+                console.lo('connected')
 
                 const supabaseURL = "https://uzqstybjgzuxedhmrmfb.supabase.co"
                 const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV6cXN0eWJqZ3p1eGVkaG1ybWZiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDAxODA3MTYsImV4cCI6MjA1NTc1NjcxNn0.s0kmAcFU4WHJV6lNOEs2huT0Q9HMFh6ene7VXd_Rh2o"
         
                 const supabaseClient = Supabase.createClient(supabaseURL, supabaseKey)
+                async function ping(){
+                    console.log("pinging")
+                    const {data, error} = await supabaseClient.from('users').select("*")
+                    
+                    if (error){
+                        console.error(error)
+                    } else {
+                        console.log("data", data)
+                    }
+                }
+                ping()
+
                 const userSelect = document.getElementById("user-select")
                 const customerSelect = document.getElementById("customer-select")
         
@@ -51,8 +68,8 @@
 
         
             }
+        )
             
-            document.head.appendChild(script)
         </script>
    </body>
 </html>
