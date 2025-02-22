@@ -16,3 +16,36 @@ async function ping(){
     }
 }
 ping()
+
+const userSelect = document.getElementById("user-select")
+const customerSelect = document.getElementById("customer-select")
+let currentUser = ""
+
+
+
+    userSelect.addEventListener("change", (e) => {
+        currentUser = e.target.value
+        console.log(currentUser)
+    })
+
+    async function fetchCustomers(){
+        const {data, error} = await supabaseClient.from("customers").select('*')
+
+        if (error){
+            console.error(error)
+        } else {
+            console.log("customers", data)
+
+            data.forEach((customer) => {
+                const option = document.createElement("option")
+                option.textContent = customer.name
+                customerSelect.appendChild(option)
+            })
+        }
+    }
+
+    fetchCustomers()
+
+    customerSelect.addEventListener("change", (e) => {
+        console.log(e.target.value)
+    })
