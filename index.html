@@ -3,30 +3,62 @@
    <head>   
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.0.0/dist/supabase.min.js"></script>
     <script defer src="index.js" type="module"></script>    
-    <style></style>
+    <style>
+        #header{
+            text-align: center;
+        }
+
+        #container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .section-container{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        label {
+            margin-right: 10px;
+        }
+    </style>
    </head>
    <body>
-        <h1>Qualitau CS Datastore</h1>
-        <label>User</label>
-        <select id="user-select">
-            <option value="">select user</option>
-            <option value="christian">Christian</option>
-            <option value="edwin">Edwin</option>
-            <option value="matt">Matt</option>
-            <option value="sam">Sam</option>
-        </select>
+        <h1 id="header">Qualitau CS Datastore</h1>
 
-        <label>Customer</label>
-        <select id="customer-select">
-            <option value="">select customer</option>
-            <!-- <option value="gf malta">GF Malta</option>
-            <option value="intel oregon">Intel Oregon</option>
-            <option value="micron boise">Micron Boise</option>
-            <option value="st crolles">ST Crolles</option> -->
-        </select>
+        <div id="container">
+            <div class="section-container">
+                <label>User</label>
+                <select id="user-select">
+                    <option value="">select user</option>
+                    <option value="christian">Christian</option>
+                    <option value="edwin">Edwin</option>
+                    <option value="matt">Matt</option>
+                    <option value="sam">Sam</option>
+                </select>
+            </div>
 
-        <label>Systems</label>
-        <div id="systems-container">
+
+            <div class="section-container">
+                <label>Customer</label>
+                <select id="customer-select">
+                    <option value="">select customer</option>
+                    <!-- <option value="gf malta">GF Malta</option>
+                    <option value="intel oregon">Intel Oregon</option>
+                    <option value="micron boise">Micron Boise</option>
+                    <option value="st crolles">ST Crolles</option> -->
+                </select>
+            </div>
+
+            <div class="section-container">
+                <label>Systems</label>
+                <div id="systems-container">
+                </div>
+             </div>
         </div>
 
    </body>
