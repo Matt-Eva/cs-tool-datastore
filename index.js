@@ -12,9 +12,7 @@ async function ping(){
     if (error){
         console.error(error)
     } else {
-        console.log("data", data)
+        console.log("fetched data", data)
     }
 }
 ping()
-
-console.log("hellow world!")
